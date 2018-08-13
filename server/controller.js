@@ -1,5 +1,6 @@
 const getUser = (req, res, next) => {
-    // console.log(req.body);
+    console.log(req.body);
+    console.log(req.params);
     const { username, password } = req.body;
     req.app
     .get("db")
@@ -53,9 +54,8 @@ const getOnePost = (req, res, next) => {
 };
 
 const addPost = (req, res, next) => {
-    // console.log(req.body)
-    const { title, img, content} = req.body;
-    const { usersid } = req.params;
+    console.log(req.body)
+    const { title, img, content, usersid} = req.body;
     req.app
     .get("db")
     .posts.addPost([title, img, content, usersid])

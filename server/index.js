@@ -24,7 +24,7 @@ app.post('/api/addUser', addUser)
 //requests for posts
 app.get(`/api/getPosts/:id`, getPosts)
 app.get(`/api/getOnePost/:postid`, getOnePost)
-app.post(`/api/addPost/:userid`, addPost)
+app.post(`/api/addPost/`, addPost)
 
 
 app.listen(port, () => {

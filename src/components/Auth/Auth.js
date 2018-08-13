@@ -38,7 +38,7 @@ class Auth extends Component {
                 <div>
                     <p className="displayUsername">{this.props.user.username}</p>
                     <p className="displayProfilePic">{this.props.user.profilePic}</p>
-                    <button className="loginbutton" onClick={ () => this.props.getUser(username, password)}>Login</button>
+                    <button className="loginbutton" onClick={ () => this.props.getUser(username, password).then(() => this.props.history.push('/dashboard'))}>Login</button>
                     <button className="registerbutton" onClick={ () => this.props.addUser(username, password)}>Register</button>
                 </div>
             </div>

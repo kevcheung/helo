@@ -19,7 +19,7 @@ class App extends Component {
     <Provider store={store}>
       <HashRouter>
         <div className="App">
-          {/* {this.props.location ? : } */}
+          {/* {this.props.location ? null : } */}
           <Nav />
           {routes}
         </div>

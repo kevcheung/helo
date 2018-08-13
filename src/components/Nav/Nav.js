@@ -8,10 +8,9 @@ function Nav (props){
         <div>
             <ul>
                 <Link to="/dashboard"><button className="navbuttons">Home</button></Link>
-                <Link to="/post/:postid"><button className="navbuttons">New Post</button></Link>
+                <Link to="/new"><button className="navbuttons">New Post</button></Link>
                 <Link to="/"><button className="navbuttons">Logout</button></Link>
             </ul>
-            Nav
         </div>
     )
 }
