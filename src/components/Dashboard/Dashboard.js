@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 class Dashboard extends Component {
@@ -17,11 +17,11 @@ class Dashboard extends Component {
         this.emptySearch = this.emptySearch.bind(this);
     }
 
-    getPosts(){
-        axios.get(`/api/getPosts/${this.props.user.usersid}/?userposts=${this.state.userposts}&search=${this.state.search}`)
+    getPosts = () => {
+        axios.get(`/api/getPosts/?userposts=${this.state.userposts}&search=${this.state.search}`)
         .then(
             response => {
-            console.log(response)
+            // console.log(response)
                 this.setState({
                     posts: response.data
                 })
@@ -93,6 +93,8 @@ class Dashboard extends Component {
     }
 }
 
-const mapStateToProps = state => state;
+// const mapStateToProps = state => state;
 
-export default connect( mapStateToProps )(Dashboard);
+// export default connect( mapStateToProps )(Dashboard);
+
+export default Dashboard;

@@ -12,26 +12,18 @@ export function getUser(username, password) {
     }
 }
 
-export function addUser(username, password) {
-    // console.log(username)
-    return {
-        type: ADD_USER,
-        payload: axios.post(`/api/addUser`, {username, password})
-    }
-}
-
-// export function (userid, username, profilePic) {
+// export function addUser(username, password) {
+//     // console.log(username)
 //     return {
 //         type: ADD_USER,
-//         payload: axios.post(`/api/addUser`, {userid, username, profilePic})
+//         payload: axios.post(`/api/addUser`, {username, password})
 //     }
 // }
 
-// INITIAL STATE
 
+// INITIAL STATE
 const initialState = {
     username: '',
-    usersid: '',
     profilePic: ''
 };
 
@@ -44,8 +36,7 @@ export default function reducer(state = initialState, action) {
         case `${GET_USER}_FULFILLED`:
             return {
             ...state,
-            username: action.payload.data[0].username,
-            usersid: action.payload.data[0].usersid
+            username: action.payload.data[0].username
         };
         case `${ADD_USER}_FULFILLED`:
             return {

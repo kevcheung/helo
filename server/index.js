@@ -4,8 +4,9 @@ const express = require('express');
 const { json } = require('body-parser');
 const app = express();
 const cors = require('cors');
+const session = require('express-session');
 
-const { getUser, addUser, getPosts, getOnePost, addPost } = require(`${__dirname}/controller`);
+const { getUser, addUser, logout, getMe, getPosts, getOnePost, addPost } = require(`${__dirname}/controller`);
 
 const port = process.env.PORT || 3001;
 
@@ -16,13 +17,22 @@ massive(process.env.CONNECTION_STRING)
 app.use(json());
 app.use(cors());
 
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET,
+        resave: false,
+        saveUninitialized: true
+    })
+);
 
 //requests for users
 app.post('/api/getUser', getUser)
 app.post('/api/addUser', addUser)
+app.post('/api/logout', logout)
+app.get('/api/getMe', getMe)
 
 //requests for posts
-app.get(`/api/getPosts/:id`, getPosts)
+app.get('/api/getPosts/', getPosts)
 app.get(`/api/getOnePost/:postid`, getOnePost)
 app.post(`/api/addPost/`, addPost)
 

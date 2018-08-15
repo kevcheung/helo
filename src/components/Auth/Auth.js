@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { connect } from 'react-redux';
-import { getUser, addUser } from '../../ducks/reducer';
+import { getUser } from '../../ducks/reducer';
 
 class Auth extends Component {
     constructor(props){
@@ -17,6 +18,11 @@ class Auth extends Component {
     enterPasswordHandler = e => {
         this.setState({password: e.target.value})
     };
+    addUser = () => {
+        const { username, password } = this.state;
+        axios.post('/api/addUser/', {username, password})
+        .then(() => this.props.history.push('/dashboard'));
+    }
     
     render() {
         // console.log(this.props)
@@ -39,7 +45,7 @@ class Auth extends Component {
                     <p className="displayUsername">{this.props.user.username}</p>
                     <p className="displayProfilePic">{this.props.user.profilePic}</p>
                     <button className="loginbutton" onClick={ () => this.props.getUser(username, password).then(() => this.props.history.push('/dashboard'))}>Login</button>
-                    <button className="registerbutton" onClick={ () => this.props.addUser(username, password)}>Register</button>
+                    <button className="registerbutton" onClick={ () => this.addUser(username, password)}>Register</button>
                 </div>
             </div>
         );
@@ -48,4 +54,4 @@ class Auth extends Component {
 
 const mapStateToProps = state => state;
 
-export default connect( mapStateToProps, {getUser, addUser})(Auth);
+export default connect( mapStateToProps, {getUser})(Auth);
