@@ -1,15 +1,23 @@
 import axios from 'axios';
 // CONSTANTS
 const GET_USER = 'GET_USER';
-const ADD_USER = 'ADD_USER';
+const GET_SESSION = 'GET_SESSION';
+// const ADD_USER = 'ADD_USER';
 
 // ACTION CREATORS
 export function getUser(username, password) {
     // console.log(username)
       return {
         type: GET_USER,
-        payload: axios.post(`/api/getUser`, {username, password})
+        payload: axios.post('/api/getUser', {username, password})
     }
+}
+
+export function getSession() {
+      return {
+          type: GET_SESSION,
+          payload: axios.get('/api/getSession')
+      }
 }
 
 // export function addUser(username, password) {
@@ -38,10 +46,14 @@ export default function reducer(state = initialState, action) {
             ...state,
             username: action.payload.data[0].username
         };
-        case `${ADD_USER}_FULFILLED`:
+        case `${GET_SESSION}_FULFILLED`:
             return {
-            ...state,
-        };
+            ...state
+            };
+        // case `${ADD_USER}_FULFILLED`:
+        //     return {
+        //     ...state,
+        // };
         default:
             return state;
         }

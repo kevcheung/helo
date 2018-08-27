@@ -6,7 +6,7 @@ const app = express();
 const cors = require('cors');
 const session = require('express-session');
 
-const { getUser, addUser, logout, getMe, getPosts, getOnePost, addPost } = require(`${__dirname}/controller`);
+const { getUser, addUser, logout, getSession, getPosts, getOnePost, addPost } = require(`${__dirname}/controller`);
 
 const port = process.env.PORT || 3001;
 
@@ -29,7 +29,7 @@ app.use(
 app.post('/api/getUser', getUser)
 app.post('/api/addUser', addUser)
 app.post('/api/logout', logout)
-app.get('/api/getMe', getMe)
+app.get('/api/getSession', getSession)
 
 //requests for posts
 app.get('/api/getPosts/', getPosts)

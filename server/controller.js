@@ -68,15 +68,16 @@ const addPost = (req, res, next) => {
 
 const logout = (req, res, next) => {
     req.session.destroy();
-    res.status(200).json('LOGGED OUT')
+    res.status(200).json(response)
+    // .then(console.log(req.session))
 }
 
-const getMe = (req, res, next) => {
-    console.log(req.session)
+const getSession = (req, res, next) => {
+    // console.log(req.session)
     const { usersid } = req.session;
     req.app
     .get("db")
-    .user.getMe([usersid])
+    .user.getSession([usersid])
     .then(response => res.status(200).json(response))
     .catch(err => res.status(500).json(err));
 }
@@ -88,5 +89,5 @@ module.exports = {
     getOnePost,
     addPost,
     logout,
-    getMe
+    getSession
 }
