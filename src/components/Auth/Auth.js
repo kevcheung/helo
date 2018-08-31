@@ -30,7 +30,7 @@ class Auth extends Component {
         const { username, password } = this.state;
         return (
             <div className="auth-container">
-            <iframe width="320" height="240" src="https://www.youtube.com/embed/YQHsXMglC9A?start=80" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe width="320" height="240" src="https://www.youtube.com/embed/YQHsXMglC9A?start=80" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
                     <h1>Helo</h1>
                 <div className="input-container">
                     <p>Username:</p>

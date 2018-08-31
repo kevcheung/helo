@@ -13,11 +13,11 @@ const getUser = (req, res, next) => {
 };
 
 const addUser = (req, res, next) => {
-    // console.log(req.body)
-    const { username, password } = req.body;
+    console.log(req.body)
+    const { username, password, profilePic } = req.body;
     req.app
     .get("db")
-    .user.addUser([username, password])
+    .user.addUser([username, password, profilePic])
     .then(response => {req.session.usersid = response[0].usersid
         res.status(200).json(response)})
     .catch(err => res.status(500).json(err));

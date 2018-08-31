@@ -44,7 +44,8 @@ export default function reducer(state = initialState, action) {
         case `${GET_USER}_FULFILLED`:
             return {
             ...state,
-            username: action.payload.data[0].username
+            username: action.payload.data[0].username,
+            profilePic: action.payload.data[0].profile_pic
         };
         case `${GET_SESSION}_FULFILLED`:
             return {

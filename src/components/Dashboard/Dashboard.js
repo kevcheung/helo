@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 // import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import searchIcon from '../../images/search.png'
 
 class Dashboard extends Component {
     constructor(props){
@@ -77,7 +78,7 @@ class Dashboard extends Component {
                         value={this.state.search}
                         />
                 </div>
-                    <button className="searchButton" onClick={this.getPosts}>Search</button>
+                    <img className="searchButton" src={searchIcon} alt="search-button" onClick={this.getPosts}/>
                     <button className="resetButton" onClick={this.emptySearch}>Reset</button>
                 <div className="myPosts">
                     <p>My Posts</p>

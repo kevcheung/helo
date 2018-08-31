@@ -9,7 +9,6 @@
     height: 55vh;
     font-family: 'Hammersmith One', sans-serif;
     color: #ffffff;
-    margin-top: 3vh;
     padding-top: 2vh;
 }
 .auth-container h1{
@@ -40,4 +39,5 @@
     border: none;
     font-family: 'Hammersmith One', sans-serif;
     color: #ffffff;
+    cursor: pointer;
 }
