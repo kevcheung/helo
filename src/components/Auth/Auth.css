@@ -1,3 +1,12 @@
+.auth-main{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-image: linear-gradient(-135deg, rgb(210, 244, 255), rgb(111, 221, 255));
+    background-size: cover;
+    min-height: 100vh;
+}
 .auth-container{
     display: flex;
     /* justify-content: space-around; */

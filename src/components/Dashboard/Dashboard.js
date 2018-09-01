@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 // import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import searchIcon from '../../images/search.png'
+import searchIcon from '../../images/search.png';
+import './Dashboard.css';
 
 class Dashboard extends Component {
     constructor(props){
@@ -70,7 +71,7 @@ class Dashboard extends Component {
             );
         })
         return (
-            <div>
+            <div className="dash-main">
                 <div className="searchInput">
                     <input
                         type="text"
